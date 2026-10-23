@@ -1,0 +1,392 @@
+
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 20px 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #080d35;
+    background-image: url("assets/fondo-noche.png");
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100% auto;
+    background-attachment: scroll;
+
+    font-family: "Press Start 2P", "Courier New", monospace;
+    color: #29264a;
+}
+
+/* =========================================
+   2. VENTANA PRINCIPAL
+========================================= */
+
+.reproductor {
+    width: 100%;
+    max-width: 370px;
+    margin: auto;
+    flex-shrink: 0;
+
+    background-color: #fff8f0;
+    border: 3px solid #29264a;
+    border-radius: 0;
+
+    box-shadow:
+        4px 4px 0 #29264a,
+        8px 8px 0 #a59aca;
+
+    overflow: hidden;
+}
+
+/* =========================================
+   3. BARRA SUPERIOR
+========================================= */
+
+.barra-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 12px;
+    background-color: #b9b0e8;
+    border-bottom: 3px solid #29264a;
+
+    font-weight: bold;
+    font-size: 9px;
+}
+
+.boton-cerrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 24px;
+    height: 24px;
+
+    background-color: #fff8f0;
+    border: 2px solid #29264a;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* =========================================
+   4. CONTENIDO INTERIOR
+========================================= */
+
+.contenido {
+    padding: 14px 14px 12px;
+    text-align: center;
+}
+
+/* =========================================
+   5. CD PIXEL ART
+========================================= */
+
+.zona-cd {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+}
+
+.cd-pixel {
+    display: block;
+    width: 130px;
+    height: 130px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+/* Giro del CD mientras suena la canción */
+
+.cd-pixel.girando {
+    animation: girar-cd 4s linear infinite;
+}
+
+@keyframes girar-cd {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================
+   6. INFORMACIÓN DE LA CANCIÓN
+========================================= */
+
+.informacion-cancion {
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.informacion-cancion h1 {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.informacion-cancion p {
+    margin: 6px 0 0;
+    color: #777092;
+    font-size: 8px;
+    line-height: 1.8;
+}
+
+/* Revelación del nombre de la canción */
+
+.revelacion-cancion {
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    color: #8b75d7;
+    font-size: 9px;
+    line-height: 1.9;
+
+    transition:
+        opacity 2.5s ease,
+        transform 2.5s ease,
+        max-height 2.5s ease,
+        margin-top 2.5s ease;
+}
+
+.revelacion-cancion.mostrar {
+    max-height: 100px;
+    margin-top: 10px;
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. BOTÓN PLAY / PAUSA
+========================================= */
+
+.controles {
+    min-height: 58px;
+    margin: 8px 0 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-musical {
+    width: 56px;
+    height: 56px;
+    padding: 7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #dcd3ff;
+    border: 3px solid #29264a;
+    border-radius: 0;
+
+    box-shadow:
+        3px 3px 0 #29264a,
+        6px 6px 0 #b9b0e8;
+
+    cursor: pointer;
+    transition: transform 0.08s;
+}
+
+.boton-musical img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.boton-musical:hover {
+    background-color: #f6dce9;
+}
+
+.boton-musical:active {
+    transform: translate(3px, 3px);
+
+    box-shadow:
+        0 0 0 #29264a,
+        3px 3px 0 #b9b0e8;
+}
+
+/* =========================================
+   8. BARRA DE PROGRESO
+========================================= */
+
+.progreso-musica {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    margin: 10px 0 14px;
+
+    font-size: 8px;
+    color: #29264a;
+}
+
+#barra-progreso {
+    flex: 1;
+    min-width: 0;
+    max-width: 220px;
+
+    accent-color: #8b75d7;
+    cursor: pointer;
+}
+
+/* =========================================
+   9. PANEL DE LA LETRA
+========================================= */
+
+.letra {
+    padding: 12px 9px;
+
+    background-color: #eee9ff;
+    border: 2px solid #b9b0e8;
+    border-radius: 0;
+}
+
+.letra h2 {
+    margin: 0 0 9px;
+    font-size: 9px;
+    line-height: 1.8;
+}
+
+.letra .etiqueta-letra {
+    margin: 0 0 8px;
+    font-size: 7px;
+    line-height: 1.8;
+    color: #777092;
+}
+
+.letra p {
+    margin: 0;
+    color: #625781;
+    font-size: 8px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   10. PIE DEL REPRODUCTOR
+========================================= */
+
+.pie {
+    padding: 9px 8px;
+    text-align: center;
+
+    background-color: #f6dce9;
+    border-top: 3px solid #29264a;
+
+    font-size: 8px;
+    line-height: 1.8;
+    font-weight: bold;
+}
+
+/* =========================================
+   11. TABLET Y PC
+========================================= */
+
+@media (min-width: 768px) {
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .reproductor {
+        max-width: 370px;
+    }
+}
+
+/* =========================================
+   12. MÓVILES
+========================================= */
+
+@media (max-width: 420px) {
+    body {
+        padding: 12px 10px;
+        align-items: center;
+    }
+
+    .reproductor {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .contenido {
+        padding: 12px 10px;
+    }
+
+    .zona-cd {
+        width: 135px;
+        height: 135px;
+        margin-bottom: 10px;
+    }
+
+    .cd-pixel {
+        width: 115px;
+        height: 115px;
+    }
+
+    .informacion-cancion h1 {
+        font-size: 9px;
+    }
+
+    .letra {
+        padding: 10px 7px;
+    }
+
+    .letra p {
+        font-size: 7px;
+    }
+}
+
+/* Respeta las preferencias de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+    .cd-pixel.girando {
+        animation-duration: 12s;
+    }
+
+    .revelacion-cancion {
+        transition-duration: 0.3s;
+    }
+}
