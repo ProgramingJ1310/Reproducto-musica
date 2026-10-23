@@ -26,8 +26,8 @@ function aSegundos(tiempo) {
 // Los tiempos son los que has indicado, expresados correctamente.
 const letras = [
     { tiempo: "0:00", texto: "🎵🎵...." },
-    { tiempo: "0:18", texto: "Tus palabras suenan..." },
-    { tiempo: "0:21", texto: "Tuvieran demasiados significados" },
+    { tiempo: "0:17", texto: "Tus palabras suenan..." },
+    { tiempo: "0:23", texto: "Tuvieran demasiados significados" },
     { tiempo: "0:30", texto: "Huellas misteriosas, encuéntralas y síguelas" },
     { tiempo: "0:33", texto: "Mis sombras están acorraladas" },
     { tiempo: "0:35", texto: "Escondiéndose detrás de la luz" },
@@ -162,3 +162,25 @@ barraProgreso.addEventListener("input", function () {
 
 // Inicializa la letra al cargar.
 actualizarLetra();
+
+
+
+
+const ventanaDedicatoria =
+    document.getElementById("ventana-dedicatoria");
+
+const botonCerrarDedicatoria =
+    document.getElementById("cerrar-dedicatoria");
+
+if (audio && ventanaDedicatoria) {
+    audio.addEventListener("ended", () => {
+        ventanaDedicatoria.hidden = false;
+    });
+
+    if (botonCerrarDedicatoria) {
+        botonCerrarDedicatoria.addEventListener("click", () => {
+            ventanaDedicatoria.hidden = true;
+        });
+    }
+}
+

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ♡</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="reproductor">
+
+        <!-- Barra superior -->
+        <header class="barra-titulo">
+            <span>♥ Para ti...</span>
+            <span class="boton-cerrar">×</span>
+        </header>
+
+        <!-- Contenido principal -->
+        <section class="contenido">
+
+            <!-- Marco musical -->
+            <div class="marco-musical">
+
+                <!-- Botón de reproducción -->
+               
+
+                <!-- CD pixelado -->
+                <div class="zona-cd">
+                    <img
+                        src="assets/cd.png"
+                        alt="CD pixelado"
+                        class="cd-pixel"
+                    >
+                </div>
+                
+
+                <!-- Nombre de la canción -->
+                <div class="informacion-cancion">
+                    <div id="revelacion-cancion" class="revelacion-cancion">
+                        Don't Leave Me 
+                    </div>
+                </div>
+                
+
+                <!-- Barra de progreso -->
+                <div class="progreso-musica">
+
+                    <span id="tiempo-actual">0:00</span>
+
+                    <input
+                        type="range"
+                        id="barra-progreso"
+                        min="0"
+                        max="100"
+                        value="0"
+                        step="0.1"
+                        aria-label="Progreso de la canción"
+                    >
+
+                    <span id="duracion-musica">0:00</span>
+
+                </div>
+                 <div class="controles">
+                    <button
+                        id="boton-play"
+                        class="boton-musical"
+                        type="button"
+                        aria-label="Reproducir canción"
+                    >
+                        <img
+                            id="icono-play"
+                            src="assets/play.png"
+                            alt="Reproducir"
+                        >
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Letra fuera del marco musical -->
+            <section class="letra">
+                <h2>♫ Letra ♫</h2>
+
+                <p id="texto-letra">
+                    Pulsa play y disfruta la canción conmigo...
+                </p>
+            </section>
+
+        </section>
+
+        <!-- Pie de página -->
+        <footer class="pie">
+            ♡ Espera hasta el final..♡
+        </footer>
+
+    </main>
+
+    <!-- Archivo de audio -->
+    <audio
+        id="audio-cancion"
+        src="audio/dont-leave-me.mp3"
+        preload="metadata"
+    ></audio>
+    
+<!-- Ventanita que aparece al terminar la canción -->
+<section
+    class="ventana-dedicatoria"
+    id="ventana-dedicatoria"
+    hidden
+    role="dialog"
+    aria-labelledby="titulo-dedicatoria"
+>
+    <div class="dedicatoria-contenido">
+
+        <p class="dedicatoria-etiqueta">
+            ♡ UN MENSAJE PARA TI ♡
+        </p>
+
+        <h2 id="titulo-dedicatoria">
+            ¿Por qué esta canción?
+        </h2>
+
+        <p>
+            Esta canción expresa ese miedo de perder a alguien
+            que amas muchísimo, de pensar en la posibilidad de
+            que un día sus caminos se separen y de no querer que
+            esa persona se aleje de tu vida.
+        </p>
+
+        <p>
+            Cuando la escucho, pienso en ti, en lo mucho que
+            significas para mí y en lo difícil que sería imaginar
+            mi vida sin ti. A veces las cosas no son fáciles,
+            tenemos nuestras responsabilidades y hay momentos
+            en los que quizá no sabemos cómo hacer que todo
+            funcione, pero eso no significa que haya dejado
+            de quererte.
+        </p>
+
+        <p>
+            Para mí, esta canción también representa las ganas
+            de seguir encontrándonos, de no rendirnos tan
+            fácilmente y de buscar la manera de estar bien
+            juntas, incluso cuando las cosas se complican.
+            Porque, aunque a veces me cueste expresar lo que
+            siento, hay algo que sí tengo claro: te amo y no
+            quiero perder lo que tenemos.
+        </p>
+
+        <p class="dedicatoria-final">
+            ♡ DON'T LEAVE ME · BTS ♡
+        </p>
+
+        <button
+            type="button"
+            id="cerrar-dedicatoria"
+            class="boton-sorpresa"
+        >
+            Cerrar mensajito ♡
+        </button>
+
+    </div>
+</section>
+
+
+</body>
+
+</html>
